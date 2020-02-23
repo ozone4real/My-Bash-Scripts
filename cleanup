@@ -1,0 +1,20 @@
+#!/bin/bash
+
+directory="$1"
+
+movies_path=$HOME/movies
+pictures_path=$HOME/pictures
+docs_path=$HOME/documents
+music_path=$HOME/music
+downloads_path=$HOME/downloads
+desktop_path=$HOME/desktop
+# for i in ${!search_paths[@]}; do
+#   search_paths[i] = $HOME/${search_paths[i]}
+# done
+
+if [[ ! $directory ]]; then
+  find $desktop_path $docs_path $pictures_path $downloads_path $music_path \( -name *.mkv -o -name *.avi -o -name *.mov -o -name *.mpeg -o -name *.mp4 \) -maxdepth 1 -exec mv '{}' $movies_path \;
+  find $desktop_path $docs_path $pictures_path $downloads_path $movies_path \( -name *.mp3 -o -name *.m4a \) -maxdepth 1 -exec mv '{}' $music_path \;
+  find $desktop_path $docs_path $music_path $downloads_path $movies_path \( -name *.jpg -o -name *.png -o -name *.jpeg \) -maxdepth 1 -exec mv '{}' $pictures_path \;
+  find $desktop_path $pictures_path $music_path $downloads_path $movies_path \( -name *.pdf -o -name *.txt -o -name *.docx -o -name *.xls \) -maxdepth 1 -exec mv '{}' $docs_path \;
+fi
