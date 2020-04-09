@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# if an directory argument is passed set the directory variable to its absolute path
+# if a directory argument is passed, set the directory variable to its absolute path
 directory=$( [[ $1 ]] && echo "$HOME/$1")
 
 movies_path=$HOME/movies
@@ -17,7 +17,7 @@ move(){
   source_directory="$2"
 
   if [[ $source_directory && ! -d $source_directory ]]; then
-    echo $source_directory does not exist, pass a directory relative to the '$HOME' directory
+    echo $source_directory does not exist, pass a directory relative to the '$HOME' directory >&2
     exit 1
   fi
 
