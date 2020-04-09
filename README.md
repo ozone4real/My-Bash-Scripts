@@ -1,4 +1,4 @@
-# cleanup
+# My Bash Scripts
 #### A collection of bash scripts I have written for personal use
 
 ## Scripts
