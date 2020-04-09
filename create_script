@@ -1,0 +1,24 @@
+#!/bin/bash
+
+script_name="$1"
+file_name="$(pwd)/$script_name"
+
+if [[ ! $script_name ]]; then
+  echo "Please pass the name of the file you wanna create as an argument" >&2 
+  exit 1
+fi
+
+if type "$script_name" > /dev/null 2>&1; then
+  echo "${script_name} command already exists" >&2 
+  exit 1
+fi
+
+if touch "$file_name"; then
+  echo "$script_name successfully created"
+else
+  echo "couldn't create $script_name" >&2
+  exit 1
+fi
+
+echo "#!/bin/bash" > "$file_name"
+chmod u+x "$file_name"

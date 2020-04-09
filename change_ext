@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $# -ne 2 ]]; then
+  echo Arguments must be 2 >&2
+  exit 1
+fi
+
+for file in *"$1"; do
+  base=$(basename $file $1)
+  mv $file "${base}$2"
+done
