@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# if an directory argument is passed set the directory variable to its absolute path
 directory=$( [[ $1 ]] && echo "$HOME/$1")
 
 movies_path=$HOME/movies
@@ -16,7 +17,7 @@ move(){
   source_directory="$2"
 
   if [[ $source_directory && ! -d $source_directory ]]; then
-    echo $source_directory does not exist
+    echo $source_directory does not exist, pass a directory relative to the '$HOME' directory
     exit 1
   fi
 
@@ -33,10 +34,15 @@ move(){
         extensions="(pdf|txt|docx|xls)" ;;
       images)
         destination=$pictures_path
-        extensions="(jpg|png|jpeg|gif)" ;;
+        extensions="(jpg|png|jpeg)" ;;
     esac
-    [[ ! $source_directory ]] && source_directory=${destination_paths[@]/$destination}
-    echo "find -E $source_directory -regex ".*.$extensions" -maxdepth 1 -exec mv '{}' $destination \;"
+
+    if [[ $source_directory ]]; then
+      source_dir=$source_directory
+    else
+      source_dir=${destination_paths[@]/$destination}
+    fi
+    find -E $source_dir -regex ".*.$extensions" -maxdepth 1 -exec mv '{}' $destination \;
   done
 }
 
