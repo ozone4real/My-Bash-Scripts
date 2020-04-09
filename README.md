@@ -9,6 +9,10 @@ E.g: moves all videos to the to `/movies`, mp3s/m4as to `/music`, documents(pdfs
 
 #### Usage:
 Clean up all directories (/downloads, /desktop, /documents, /pictures, /movies)
-``` cleanup ```
+``` 
+cleanup 
+```
 Clean up a specific directory
-``` cleanup desktop ```
+``` 
+cleanup desktop 
+```
