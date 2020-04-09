@@ -8,7 +8,7 @@ Major user directories on my Macbook (`downloads` and `desktop` especially) are 
 E.g: moves all videos to the to `/movies`, mp3s/m4as to `/music`, documents(pdfs, docx, xls, e.t.c) to `/documents` all jpgs/pngs/jpegs to `/pictures` e.t.c.
 
 #### Usage:
-Clean up all directories (/downloads, /desktop, /documents, /pictures, /movies)
+Clean up directories: (/downloads, /desktop, /documents, /pictures, /movies)
 ``` 
 cleanup 
 ```
