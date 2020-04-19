@@ -16,3 +16,13 @@ Clean up a specific directory
 ``` 
 cleanup desktop 
 ```
+
+### Create Script
+
+This initializes an empty executable file with the bash interpreter directive and the `execute` permission set for the current user
+
+##### Usage
+
+```
+create_script pushit
+```
