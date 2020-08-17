@@ -31,7 +31,7 @@ move(){
         extensions="(mp3|m4a)" ;;
       docs)
         destination=$docs_path
-        extensions="(pdf|txt|docx|xls)" ;;
+        extensions="(pdf|txt|docx|xls|csv)" ;;
       images)
         destination=$pictures_path
         extensions="(jpg|png|jpeg)" ;;
