@@ -19,10 +19,17 @@ cleanup desktop
 
 ### Create Script
 
-This initializes an empty executable file with the bash interpreter directive and the `execute` permission set for the current user
+This initializes an empty executable file with the executable directive and the `execute` permission set for the current user
 
 ##### Usage
 
 ```
-create_script pushit
+create_script pushit python
 ```
+creates an empty Python executable script named 'pushit'
+
+
+```
+create_script pushit ruby
+```
+creates an empty Ruby executable script named 'pushit'
