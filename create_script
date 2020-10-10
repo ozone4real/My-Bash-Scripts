@@ -1,7 +1,10 @@
 #!/bin/bash
 
-script_name="$1"
+script_name=$1
+interpreter=$2
 file_name="$(pwd)/$script_name"
+env="#!/usr/bin/env"
+exec="$env bash"
 
 if [[ ! $script_name ]]; then
   echo "Please pass the name of the file you wanna create as an argument" >&2 
@@ -9,7 +12,7 @@ if [[ ! $script_name ]]; then
 fi
 
 if type "$script_name" > /dev/null 2>&1; then
-  echo "${script_name} command already exists" >&2 
+  echo "${script_name} command already exists" >&2
   exit 1
 fi
 
@@ -20,5 +23,13 @@ else
   exit 1
 fi
 
-echo "#!/bin/bash" > "$file_name"
+if [[ $interpreter ]]; then
+  if which $interpreter; then
+    exec="$env $interpreter"
+  else
+    echo "Executable '$interpreter' not found. Using the bash interpreter"
+  fi
+fi
+
+echo $exec > "$file_name"
 chmod u+x "$file_name"
